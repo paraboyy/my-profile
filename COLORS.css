@@ -1,0 +1,154 @@
+/* 
+   =============================================
+   COLOR CUSTOMIZATION GUIDE
+   =============================================
+   
+   Edit bagian :root di bawah untuk mengubah
+   warna website sesuai preferensi Anda
+*/
+
+:root {
+    /* 
+       MAIN COLORS - Edit di sini untuk mengubah tema
+       Gunakan hex color format atau rgb()
+       Contoh: #FF5733 atau rgb(255, 87, 51)
+    */
+    --primary: #6366f1;           /* Warna utama (biru ungu) */
+    --secondary: #8b5cf6;         /* Warna sekunder (ungu lebih terang) */
+    --accent: #ec4899;            /* Warna aksen (pink) */
+    
+    /* 
+       GRAYSCALE - Warna abu-abu
+       Jangan perlu di-edit kecuali ingin theme gelap
+    */
+    --dark: #0f172a;              /* Warna gelap (hampir hitam) */
+    --dark-light: #1e293b;        /* Warna gelap terang */
+    --light: #f8fafc;             /* Warna terang (hampir putih) */
+    --text: #334155;              /* Warna text default */
+    --text-light: #94a3b8;        /* Warna text terang (gray) */
+    --border: #e2e8f0;            /* Warna border */
+    
+    /* 
+       UTILITY COLORS - Warna khusus untuk status
+       Gunakan untuk alert, success, error messages
+    */
+    --success: #10b981;           /* Hijau (sukses) */
+    --warning: #f59e0b;           /* Kuning (peringatan) */
+    --error: #ef4444;             /* Merah (error) */
+}
+
+/* 
+   =============================================
+   PRESET COLOR SCHEMES
+   =============================================
+   
+   Uncomment salah satu di bawah untuk menggunakan
+   preset color scheme yang sudah jadi
+*/
+
+/* 
+   PRESET 1: Modern Blue (Default)
+   Warna utama: Biru Ungu
+*/
+/* :root {
+    --primary: #6366f1;
+    --secondary: #8b5cf6;
+    --accent: #ec4899;
+} */
+
+
+/* 
+   PRESET 2: Ocean Green
+   Warna utama: Hijau Laut
+*/
+/* :root {
+    --primary: #10b981;
+    --secondary: #0ea5e9;
+    --accent: #06b6d4;
+} */
+
+
+/* 
+   PRESET 3: Sunset Orange
+   Warna utama: Oranye Matahari Terbenam
+*/
+/* :root {
+    --primary: #f97316;
+    --secondary: #fb923c;
+    --accent: #fbbf24;
+} */
+
+
+/* 
+   PRESET 4: Deep Purple
+   Warna utama: Ungu Gelap
+*/
+/* :root {
+    --primary: #7c3aed;
+    --secondary: #a855f7;
+    --accent: #d946ef;
+} */
+
+
+/* 
+   PRESET 5: Tech Cyan
+   Warna utama: Cyan Modern
+*/
+/* :root {
+    --primary: #06b6d4;
+    --secondary: #0891b2;
+    --accent: #0284c7;
+} */
+
+
+/* 
+   PRESET 6: Rose Pink
+   Warna utama: Pink Mawar
+*/
+/* :root {
+    --primary: #f43f5e;
+    --secondary: #ec4899;
+    --accent: #db2777;
+} */
+
+
+/* 
+   =============================================
+   HOW TO USE CUSTOM COLORS
+   =============================================
+   
+   1. Pilih 3 warna yang Anda sukai:
+      - Primary: Warna utama
+      - Secondary: Warna sekunder
+      - Accent: Warna highlight
+      
+   2. Gunakan color picker online:
+      https://coolors.co
+      https://colorhexa.com
+      https://htmlcolorcodes.com
+      
+   3. Copy hex color (misal: #FF5733)
+   
+   4. Paste ke variable di :root
+      Contoh: --primary: #FF5733;
+      
+   5. Save dan refresh browser
+   
+   6. Lihat preview di website Anda
+   
+   =============================================
+   TIPS COLOR COMBINATION
+   =============================================
+   
+   ✓ Gunakan warna yang kontras
+   ✓ Primary dan Secondary harus harmonis
+   ✓ Accent harus menonjol dari primary/secondary
+   ✓ Pastikan readable (text contrast ratio min 4.5:1)
+   ✓ Test di berbagai lighting conditions
+   
+   Tools untuk check contrast:
+   - https://webaim.org/resources/contrastchecker/
+   - https://coolors.co/contrast-checker
+   
+   =============================================
+*/

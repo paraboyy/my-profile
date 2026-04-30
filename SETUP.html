@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup & Instructions - Adhim Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: #764ba2;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        .step {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #667eea;
+        }
+        
+        .step h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        code {
+            background: #f0f0f0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        
+        pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .button:hover {
+            transform: translateY(-3px);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        ul {
+            margin-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Portfolio Website Setup</h1>
+        <p>Selamat datang! Ini adalah guide lengkap untuk menggunakan website portfolio Anda.</p>
+        
+        <div class="section">
+            <h2>📋 Apa yang Sudah Dibuat</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>✨ Design Modern</h3>
+                    <p>Minimalis dan profesional dengan gradien yang menarik</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ Interaktif</h3>
+                    <p>Animasi smooth, hover effects, dan parallax</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Responsive</h3>
+                    <p>Sempurna di mobile, tablet, dan desktop</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎯 Sections</h3>
+                    <p>Hero, About, Skills, Portfolio, Contact</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Cara Membuka Website</h2>
+            
+            <div class="step">
+                <h3>Opsi 1: Buka Langsung di Browser</h3>
+                <p>Klik dua kali file <code>index.html</code> atau drag ke browser</p>
+            </div>
+            
+            <div class="step">
+                <h3>Opsi 2: Gunakan Live Server (Recommended)</h3>
+                <p><strong>Jika menggunakan VS Code:</strong></p>
+                <ol>
+                    <li>Install extension "Live Server"</li>
+                    <li>Klik kanan pada <code>index.html</code></li>
+                    <li>Pilih "Open with Live Server"</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h3>Opsi 3: Python Simple Server</h3>
+                <p>Buka terminal di folder project, lalu jalankan:</p>
+                <pre>python3 -m http.server 8000</pre>
+                <p>Kemudian buka: <code>http://localhost:8000</code></p>
+            </div>
+            
+            <div class="info">
+                <strong>💡 Tips:</strong> Gunakan Live Server agar perubahan langsung terlihat saat Anda refresh browser
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 File-file yang Ada</h2>
+            <ul>
+                <li><code>index.html</code> - File utama website</li>
+                <li><code>styles.css</code> - Semua styling dan design</li>
+                <li><code>script.js</code> - Interaktivitas dan animasi</li>
+                <li><code>README.md</code> - Dokumentasi lengkap</li>
+                <li><code>package.json</code> - Metadata project</li>
+                <li><code>.gitignore</code> - Untuk Git repository</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎨 Cara Mengustomisasi</h2>
+            
+            <div class="step">
+                <h3>1. Ubah Nama & Data Pribadi</h3>
+                <p>Buka <code>index.html</code> dan cari bagian berikut, lalu ubah sesuai data Anda:</p>
+                <pre>&lt;h1 class="hero-title"&gt;Adhim Satya Nugraha&lt;/h1&gt;
+&lt;p class="hero-subtitle"&gt;UI/UX Designer | Full Stack Developer | Creative Developer&lt;/p&gt;</pre>
+            </div>
+            
+            <div class="step">
+                <h3>2. Ubah Warna (Color Scheme)</h3>
+                <p>Buka <code>styles.css</code> dan ubah di bagian <code>:root</code>:</p>
+                <pre>:root {
+    --primary: #6366f1;      /* Warna utama */
+    --secondary: #8b5cf6;    /* Warna sekunder */
+    --accent: #ec4899;       /* Warna aksen */
+}</pre>
+            </div>
+            
+            <div class="step">
+                <h3>3. Tambah Project Portfolio</h3>
+                <p>Cari section <code>&lt;div class="portfolio-grid"&gt;</code> di <code>index.html</code> dan tambahkan:</p>
+                <pre>&lt;div class="portfolio-item" data-category="web"&gt;
+    &lt;div class="portfolio-image"&gt;
+        &lt;img src="image-url.jpg" alt="Project Name"&gt;
+    &lt;/div&gt;
+    &lt;div class="portfolio-content"&gt;
+        &lt;h3&gt;Nama Project&lt;/h3&gt;
+        &lt;p&gt;Deskripsi project&lt;/p&gt;
+        &lt;div class="tech-stack"&gt;
+            &lt;span&gt;Technology&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+            </div>
+            
+            <div class="step">
+                <h3>4. Tambah Social Media</h3>
+                <p>Cari bagian <code>.social-links</code> dan update dengan link sosial media Anda</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📱 Fitur Interaktif</h2>
+            <ul>
+                <li>✅ <strong>Smooth Scroll Navigation</strong> - Navigasi yang halus saat klik menu</li>
+                <li>✅ <strong>Parallax Effects</strong> - Efek 3D saat mouse bergerak</li>
+                <li>✅ <strong>Portfolio Filter</strong> - Filter project berdasarkan kategori</li>
+                <li>✅ <strong>Counter Animation</strong> - Animasi angka di section About</li>
+                <li>✅ <strong>Typing Effect</strong> - Text subtitle yang ketik otomatis</li>
+                <li>✅ <strong>Scroll to Top Button</strong> - Tombol kembali ke atas</li>
+                <li>✅ <strong>Mobile Hamburger Menu</strong> - Menu responsif untuk mobile</li>
+                <li>✅ <strong>Intersection Observer</strong> - Animasi saat elemen muncul di viewport</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🌐 Deployment (Upload ke Internet)</h2>
+            
+            <div class="step">
+                <h3>Opsi 1: Netlify (Recommended - Gratis)</h3>
+                <ol>
+                    <li>Buka <a href="https://www.netlify.com" target="_blank">netlify.com</a></li>
+                    <li>Klik "Deploy manually" atau "New site"</li>
+                    <li>Drag folder project ke area upload</li>
+                    <li>Website live dalam hitungan detik!</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h3>Opsi 2: Vercel (Gratis)</h3>
+                <ol>
+                    <li>Buka <a href="https://vercel.com" target="_blank">vercel.com</a></li>
+                    <li>Koneksi dengan GitHub</li>
+                    <li>Pilih repository portfolio</li>
+                    <li>Deploy dengan satu klik</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h3>Opsi 3: GitHub Pages (Gratis)</h3>
+                <ol>
+                    <li>Buat repository dengan nama <code>username.github.io</code></li>
+                    <li>Push semua file ke repository</li>
+                    <li>Akses via <code>https://username.github.io</code></li>
+                </ol>
+            </div>
+            
+            <div class="success">
+                <strong>✅ Tips:</strong> Semua opsi di atas gratis dan mudah! Pilih yang paling nyaman untuk Anda.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔧 Troubleshooting</h2>
+            
+            <div class="step">
+                <h3>❓ Gambar tidak muncul</h3>
+                <p>Replace SVG placeholder dengan image URL yang valid. Atau upload gambar ke folder dan reference dengan path relatif.</p>
+            </div>
+            
+            <div class="step">
+                <h3>❓ Animasi tidak smooth</h3>
+                <p>Refresh browser (Ctrl+F5 atau Cmd+Shift+R). Jika masih tidak smooth, check Developer Console untuk errors.</p>
+            </div>
+            
+            <div class="step">
+                <h3>❓ Mobile menu tidak bekerja</h3>
+                <p>Buka DevTools (F12), cek Console tab untuk error messages. Pastikan script.js ter-load dengan baik.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📞 Informasi Kontak</h2>
+            <p><strong>Nama:</strong> Adhim Satya Nugraha</p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/6282340619880" target="_blank">082 340 619 880</a></p>
+            <p><strong>Keahlian:</strong> UI/UX Designer, Frontend Developer (Vue.js), Backend Developer (Laravel), Game Developer (Roblox Studio)</p>
+        </div>
+
+        <div class="section">
+            <h2>📚 Dokumentasi Lengkap</h2>
+            <p>Untuk dokumentasi lebih detail, buka file <code>README.md</code> di text editor Anda.</p>
+            <a href="#" class="button" onclick="alert('Buka file README.md dengan text editor untuk dokumentasi lengkap')">📖 Baca Dokumentasi Lengkap</a>
+        </div>
+
+        <div class="footer">
+            <p>Made with ❤️ by Adhim Satya Nugraha | 2026</p>
+            <p>Happy coding! 🚀</p>
+        </div>
+    </div>
+</body>
+</html>

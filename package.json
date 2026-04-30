@@ -1,0 +1,19 @@
+{
+  "name": "adhim-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Adhim Satya Nugraha",
+  "main": "index.html",
+  "keywords": [
+    "portfolio",
+    "ui-designer",
+    "frontend-developer",
+    "backend-developer",
+    "game-developer"
+  ],
+  "author": "Adhim Satya Nugraha",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}

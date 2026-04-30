@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - File Index & Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .card-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-header .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .file-list {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        
+        .file-list li {
+            padding: 0.5rem 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .file-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .file-list strong {
+            color: #667eea;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            width: 100%;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .action-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .action-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .action-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+        
+        .action-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .action-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
+        }
+        
+        .step h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+        
+        .code {
+            background: #f5f5f5;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+            margin: 0.5rem 0;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎨 Portfolio Website</h1>
+            <p>Welcome to Adhim Satya Nugraha's Professional Portfolio</p>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="action-grid">
+            <div class="action-card">
+                <div class="icon">📱</div>
+                <h4>Website</h4>
+                <p>View your portfolio</p>
+                <a href="index.html" class="btn">Open Website</a>
+            </div>
+            <div class="action-card">
+                <div class="icon">📖</div>
+                <h4>Setup Guide</h4>
+                <p>Interactive setup guide</p>
+                <a href="SETUP.html" class="btn">View Guide</a>
+            </div>
+            <div class="action-card">
+                <div class="icon">🚀</div>
+                <h4>Quick Start</h4>
+                <p>3-step quick start</p>
+                <a href="QUICK_START.md" class="btn" download>Download</a>
+            </div>
+            <div class="action-card">
+                <div class="icon">📚</div>
+                <h4>Documentation</h4>
+                <p>Full documentation</p>
+                <a href="README.md" class="btn" download>Download</a>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="grid">
+            <!-- Files Section -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">📁</div>
+                    <h3>Project Files</h3>
+                </div>
+                <div class="card-content">
+                    <p>Core files untuk website Anda:</p>
+                    <ul class="file-list">
+                        <li><strong>index.html</strong> - File utama website</li>
+                        <li><strong>styles.css</strong> - Design & styling</li>
+                        <li><strong>script.js</strong> - Interaktivitas</li>
+                        <li><strong>package.json</strong> - Metadata project</li>
+                        <li><strong>.gitignore</strong> - Git configuration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Documentation Section -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">📚</div>
+                    <h3>Documentation</h3>
+                </div>
+                <div class="card-content">
+                    <p>Panduan lengkap dan referensi:</p>
+                    <ul class="file-list">
+                        <li><strong>README.md</strong> - Dokumentasi lengkap</li>
+                        <li><strong>QUICK_START.md</strong> - 3-step start</li>
+                        <li><strong>PROJECT_SUMMARY.md</strong> - Ringkasan project</li>
+                        <li><strong>COLORS.css</strong> - Color guide</li>
+                        <li><strong>SETUP.html</strong> - Interactive guide</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">✨</div>
+                    <h3>Features</h3>
+                </div>
+                <div class="card-content">
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span class="badge">Responsive Design</span>
+                        <span class="badge">Smooth Animations</span>
+                        <span class="badge">Parallax Effects</span>
+                        <span class="badge">Portfolio Filter</span>
+                        <span class="badge">Mobile Menu</span>
+                        <span class="badge">SEO Ready</span>
+                        <span class="badge">Fast Loading</span>
+                        <span class="badge">No Dependencies</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Your Info Section -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">👤</div>
+                    <h3>Your Information</h3>
+                </div>
+                <div class="card-content">
+                    <p><strong>Name:</strong> Adhim Satya Nugraha</p>
+                    <p><strong>WhatsApp:</strong> 082 340 619 880</p>
+                    <p><strong>Skills:</strong></p>
+                    <div style="margin: 0.5rem 0;">
+                        <span class="badge">UI/UX Design</span>
+                        <span class="badge">Frontend (Vue.js)</span>
+                        <span class="badge">Backend (Laravel)</span>
+                        <span class="badge">Game Dev (Roblox)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Setup Section -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">⚡</div>
+                    <h3>Quick Setup</h3>
+                </div>
+                <div class="card-content">
+                    <ol style="margin-left: 1rem; color: #666; line-height: 1.8;">
+                        <li>Edit <code class="code">index.html</code> dengan nama & data Anda</li>
+                        <li>Customize warna di <code class="code">styles.css</code></li>
+                        <li>Tambah portfolio projects</li>
+                        <li>Deploy ke Netlify/Vercel</li>
+                        <li>Share portfolio link Anda!</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Customization Section -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">🎨</div>
+                    <h3>Customization</h3>
+                </div>
+                <div class="card-content">
+                    <p><strong>Edit Nama:</strong></p>
+                    <p class="code">Line 49: index.html</p>
+                    
+                    <p><strong>Edit Warna:</strong></p>
+                    <p class="code">Lines 11-21: styles.css</p>
+                    
+                    <p><strong>Tambah Project:</strong></p>
+                    <p class="code">Line 228: index.html</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Getting Started Section -->
+        <div style="background: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+            <h2 style="color: #667eea; margin-bottom: 1.5rem;">🚀 Getting Started</h2>
+            
+            <div class="step">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                    <span class="step-number">1</span>
+                    <h4 style="margin: 0;">Open Website</h4>
+                </div>
+                <p style="margin-left: 3.5rem; color: #666;">
+                    Click on "Open Website" button above, or double-click <code class="code">index.html</code> to preview your portfolio
+                </p>
+            </div>
+            
+            <div class="step">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                    <span class="step-number">2</span>
+                    <h4 style="margin: 0;">Customize Content</h4>
+                </div>
+                <p style="margin-left: 3.5rem; color: #666;">
+                    Edit <code class="code">index.html</code> to update your name, description, projects, and contact information. Use the color guide in <code class="code">COLORS.css</code> to customize colors.
+                </p>
+            </div>
+            
+            <div class="step">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                    <span class="step-number">3</span>
+                    <h4 style="margin: 0;">Deploy Online</h4>
+                </div>
+                <p style="margin-left: 3.5rem; color: #666;">
+                    Choose Netlify, Vercel, or GitHub Pages to deploy your website online. It's free and takes just minutes!
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>📧 <strong>WhatsApp:</strong> <a href="https://wa.me/6282340619880" style="color: white; text-decoration: underline;">082 340 619 880</a></p>
+            <p style="margin-top: 1rem;">Made with ❤️ by Adhim Satya Nugraha | 2026</p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Happy coding! 🚀</p>
+        </div>
+    </div>
+</body>
+</html>
