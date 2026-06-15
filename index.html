@@ -1,368 +1,756 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adhim Satya Nugraha - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description"
+        content="Adhim Satya Nugraha - UI/UX Designer, Full Stack Developer & Creative Developer. Portfolio yang menampilkan karya-karya inovatif dalam web development, design, dan game development.">
+    <meta name="keywords"
+        content="Adhim Satya Nugraha, UI/UX Designer, Full Stack Developer, Vue.js, Laravel, Portfolio">
+    <meta name="author" content="Adhim Satya Nugraha">
     <meta name="theme-color" content="#6366f1">
+    <title>Adhim Satya Nugraha — Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">AS</div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Beranda</a></li>
-                <li><a href="#tentang" class="nav-link">Tentang</a></li>
-                <li><a href="#keahlian" class="nav-link">Keahlian</a></li>
-                <li><a href="#project" class="nav-link">Portfolio</a></li>
-                <li><a href="#kontak" class="nav-link">Kontak</a></li>
-            </ul>
-            <div class="nav-right">
-                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
+
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <div class="loader-logo">WELCOME TO MY PORTFOLIO</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
             </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <p class="loader-text">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Particle Canvas Background -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Cursor Custom -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-text">AS</span>
+                <span class="logo-dot"></span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link" data-text="Beranda">Beranda</a></li>
+                <li><a href="#tentang" class="nav-link" data-text="Tentang">Tentang</a></li>
+                <li><a href="#keahlian" class="nav-link" data-text="Keahlian">Keahlian</a></li>
+                <li><a href="#project" class="nav-link" data-text="Portfolio">Portfolio</a></li>
+                <li><a href="#kontak" class="nav-link" data-text="Kontak">Kontak</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#home" class="mobile-nav-link"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="#tentang" class="mobile-nav-link"><i class="fas fa-user"></i> Tentang</a></li>
+            <li><a href="#keahlian" class="mobile-nav-link"><i class="fas fa-code"></i> Keahlian</a></li>
+            <li><a href="#project" class="mobile-nav-link"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+            <li><a href="#kontak" class="mobile-nav-link"><i class="fas fa-envelope"></i> Kontak</a></li>
+        </ul>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ========================
+         HERO SECTION
+         ======================== -->
     <section id="home" class="hero">
+        <!-- 3D Floating Objects -->
+        <div class="hero-3d-scene" id="hero3dScene">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+
         <div class="hero-content">
             <div class="hero-text">
-                <h1 class="hero-title">Adhim Satya Nugraha</h1>
-                <p class="hero-subtitle">UI/UX Designer | Full Stack Developer | Creative Developer</p>
-                <p class="hero-description">Menciptakan solusi digital yang inovatif dengan desain minimalis dan fungsionalitas maksimal</p>
-                <a href="#kontak" class="cta-button">Hubungi Saya</a>
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Open to Work</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Adhim Satya</span>
+                    <span class="title-line gradient-text">Nugraha</span>
+                </h1>
+                <div class="hero-subtitle">
+                    <span id="typingText"></span>
+                    <span class="typing-cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    Menciptakan solusi digital yang inovatif dengan desain minimalis dan fungsionalitas maksimal.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#project" class="btn btn-primary" id="btnPortfolio">
+                        <span>Lihat Portfolio</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#kontak" class="btn btn-outline" id="btnContact">
+                        <span>Hubungi Saya</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="#" class="hero-social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" class="hero-social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/6282340619880" class="hero-social-link" title="WhatsApp" target="_blank"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="hero-social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div class="hero-visual">
-                <div class="floating-card">
-                    <div class="card-content">
-                        <i class="fas fa-code"></i>
-                        <span>Developer</span>
+
+            <div class="hero-visual" id="heroVisual">
+                <!-- 3D Card Main -->
+                <div class="hero-card-3d" id="heroCard">
+                    <div class="card-3d-inner">
+                        <div class="card-avatar">
+                            <div class="avatar-ring"></div>
+                            <div class="avatar-ring ring-2"></div>
+                            <div class="avatar-core">
+                                <span>AS</span>
+                            </div>
+                        </div>
+                        <h3 class="card-name">Adhim Satya Nugraha</h3>
+                        <p class="card-role">Full Stack Developer & Designer</p>
+                        <div class="card-stats">
+                            <div class="card-stat">
+                                <span class="stat-num">5+</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                            <div class="card-stat-divider"></div>
+                            <div class="card-stat">
+                                <span class="stat-num">2+</span>
+                                <span class="stat-label">Years</span>
+                            </div>
+                            <div class="card-stat-divider"></div>
+                            <div class="card-stat">
+                                <span class="stat-num">4</span>
+                                <span class="stat-label">Skills</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="floating-card" style="animation-delay: 2s;">
-                    <div class="card-content">
-                        <i class="fas fa-paint-brush"></i>
-                        <span>Designer</span>
+                    <!-- Floating skill badges -->
+                    <div class="floating-badge badge-1">
+                        <i class="fab fa-vuejs"></i>
+                        <span>Vue.js</span>
                     </div>
-                </div>
-                <div class="floating-card" style="animation-delay: 4s;">
-                    <div class="card-content">
+                    <div class="floating-badge badge-2">
+                        <i class="fab fa-laravel"></i>
+                        <span>Laravel</span>
+                    </div>
+                    <div class="floating-badge badge-3">
+                        <i class="fas fa-palette"></i>
+                        <span>Figma</span>
+                    </div>
+                    <div class="floating-badge badge-4">
                         <i class="fas fa-gamepad"></i>
-                        <span>Game Dev</span>
+                        <span>Roblox</span>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Scroll Indicator -->
         <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
             </div>
-            <div class="arrow">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <span>Scroll Down</span>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="tentang" class="about">
-        <div class="section-header">
-            <h2>Tentang Saya</h2>
-            <div class="header-line"></div>
+    <!-- ========================
+         ABOUT SECTION
+         ======================== -->
+    <section id="tentang" class="about section">
+        <div class="section-header reveal">
+            <span class="section-label">About Me</span>
+            <h2 class="section-title">Tentang <span class="gradient-text">Saya</span></h2>
+            <p class="section-subtitle">Mengenal lebih dekat siapa saya dan apa yang saya lakukan</p>
         </div>
-        
+
         <div class="about-content">
-            <div class="about-text">
-                <div class="intro-card">
-                    <h3>👋 Halo, Saya Adhim Satya Nugraha</h3>
-                    <p class="intro-subtitle">Mahasiswa Semester Akhir • IT Teacher • Full Stack Developer</p>
+            <!-- Left: Info Cards -->
+            <div class="about-left reveal-left">
+                <div class="about-intro-card glass-card tilt-card">
+                    <div class="intro-card-bg"></div>
+                    <div class="intro-card-content">
+                        <div class="intro-icon">👋</div>
+                        <h3>Halo, Saya Adhim!</h3>
+                        <p class="intro-roles">Mahasiswa Semester Akhir • IT Teacher • Full Stack Developer</p>
+                        <p class="intro-desc">
+                            Mahasiswa <strong>Teknologi Informasi</strong> yang passionate terhadap dunia teknologi dan
+                            pengembangan digital. Aktif berbagi pengetahuan sebagai <strong>Teacher IT di TimeDoor
+                                Academy</strong>.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="about-description-main">
-                    <p>
-                        Saya adalah seorang mahasiswa <strong>Teknologi Informasi</strong> yang sedang menjalani semester akhir dengan passion yang tinggi terhadap dunia teknologi dan pengembangan digital. Selain belajar di kampus, saya aktif berbagi pengetahuan dengan menjadi <strong>Teacher IT di TeachDoor Academy</strong>, membantu pelajar lain memahami konsep-konsep teknologi dengan cara yang mudah dan menyenangkan.
-                    </p>
+                <!-- Contact Info -->
+                <div class="contact-card glass-card">
+                    <div class="contact-card-item">
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <span class="contact-label">WhatsApp / Telepon</span>
+                            <a href="https://wa.me/6282340619880" target="_blank" class="contact-value">082 340 619
+                                880</a>
+                        </div>
+                    </div>
+                    <div class="contact-card-item">
+                        <div class="contact-icon location"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <span class="contact-label">Lokasi</span>
+                            <span class="contact-value">Indonesia</span>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="experience-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
+            <!-- Center: Timeline -->
+            <div class="about-center reveal">
+                <div class="timeline">
+                    <div class="timeline-item tilt-card">
+                        <div class="timeline-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <div class="timeline-content">
+                        <div class="timeline-body glass-card">
                             <h4>Mahasiswa Teknologi Informasi</h4>
-                            <p class="timeline-subtitle">Semester Akhir</p>
-                            <p class="timeline-description">Mendalami berbagai aspek teknologi informasi dengan fokus pada pengembangan software, sistem informasi, dan teknologi terkini. Mempersiapkan diri untuk menjadi profesional di industri tech.</p>
+                            <span class="timeline-badge">Semester Akhir</span>
+                            <p>Mendalami berbagai aspek teknologi informasi dengan fokus pada pengembangan software,
+                                sistem informasi, dan teknologi terkini.</p>
                         </div>
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
+                    <div class="timeline-item tilt-card">
+                        <div class="timeline-icon accent">
                             <i class="fas fa-chalkboard-user"></i>
                         </div>
-                        <div class="timeline-content">
-                            <h4>IT Teacher - TeachDoor Academy</h4>
-                            <p class="timeline-subtitle">Mentor & Educator</p>
-                            <p class="timeline-description">Memberikan pembelajaran interaktif tentang teknologi informasi kepada siswa-siswa. Menciptakan pengalaman belajar yang engaging dan praktis dengan studi kasus nyata dari dunia industri.</p>
+                        <div class="timeline-body glass-card">
+                            <h4>IT Teacher — TimeDoor Academy</h4>
+                            <span class="timeline-badge accent">Mentor & Educator</span>
+                            <p>Memberikan pembelajaran interaktif tentang teknologi informasi kepada siswa-siswa dengan
+                                studi kasus nyata dari dunia industri.</p>
                         </div>
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
+                    <div class="timeline-item tilt-card">
+                        <div class="timeline-icon secondary">
                             <i class="fas fa-code"></i>
                         </div>
-                        <div class="timeline-content">
+                        <div class="timeline-body glass-card">
                             <h4>Full Stack Developer</h4>
-                            <p class="timeline-subtitle">Praktisi & Innovator</p>
-                            <p class="timeline-description">Memiliki pengalaman praktis dalam mengembangkan solusi digital lengkap dari frontend, backend, hingga game development. Setiap project adalah kesempatan untuk belajar dan menciptakan sesuatu yang bermakna.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="journey-section">
-                    <h4>🚀 Perjalanan Saya</h4>
-                    <p>
-                        Saya percaya bahwa teknologi adalah alat untuk menyelesaikan masalah dan menciptakan nilai bagi banyak orang. Dengan pengalaman mengembangkan berbagai project dari skala kecil hingga kompleks, saya terus belajar dan berinovasi. Setiap tantangan adalah kesempatan untuk tumbuh, dan setiap project yang selesai membawa saya lebih dekat ke visi menjadi developer profesional yang berdampak.
-                    </p>
-                </div>
-
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <label>WhatsApp / Telepon</label>
-                            <p><a href="https://wa.me/6282340619880" target="_blank">082 340 619 880</a></p>
+                            <span class="timeline-badge secondary">Praktisi & Innovator</span>
+                            <p>Mengembangkan solusi digital lengkap dari frontend, backend, hingga game development.
+                                Setiap project adalah kesempatan untuk belajar.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="about-stats">
-                <div class="stat-card">
-                    <h3>📚</h3>
-                    <p>Mahasiswa<br>Semester Akhir</p>
+
+            <!-- Right: Stats -->
+            <div class="about-right reveal-right">
+                <div class="stats-grid">
+                    <div class="stat-box glass-card tilt-card" data-count="5">
+                        <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-plus">+</div>
+                        <div class="stat-title">Projects Selesai</div>
+                    </div>
+                    <div class="stat-box glass-card tilt-card" data-count="2">
+                        <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="stat-number" data-target="2">0</div>
+                        <div class="stat-plus">+</div>
+                        <div class="stat-title">Tahun Experience</div>
+                    </div>
+                    <div class="stat-box glass-card tilt-card" data-count="4">
+                        <div class="stat-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="stat-number" data-target="4">0</div>
+                        <div class="stat-plus"></div>
+                        <div class="stat-title">Skill Domains</div>
+                    </div>
+                    <div class="stat-box glass-card tilt-card" data-count="100">
+                        <div class="stat-icon"><i class="fas fa-heart"></i></div>
+                        <div class="stat-number" data-target="100">0</div>
+                        <div class="stat-plus">%</div>
+                        <div class="stat-title">Passion Level</div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <h3>👨‍🏫</h3>
-                    <p>IT Teacher<br>TeachDoor Academy</p>
-                </div>
-                <div class="stat-card">
-                    <h3>🎯</h3>
-                    <p>5+ Project<br>Selesai</p>
-                </div>
-                <div class="stat-card">
-                    <h3>💡</h3>
-                    <p>Passionate<br>Learner</p>
+
+                <div class="journey-card glass-card">
+                    <h4><span>🚀</span> Perjalanan Saya</h4>
+                    <p>Teknologi adalah alat untuk menciptakan nilai. Dengan pengalaman dari project kecil hingga
+                        kompleks, saya terus belajar dan berinovasi setiap hari.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="keahlian" class="skills">
-        <div class="section-header">
-            <h2>Keahlian & Teknologi</h2>
-            <div class="header-line"></div>
+    <!-- ========================
+         SKILLS SECTION
+         ======================== -->
+    <section id="keahlian" class="skills section">
+        <div class="section-header reveal">
+            <span class="section-label">My Expertise</span>
+            <h2 class="section-title">Keahlian & <span class="gradient-text">Teknologi</span></h2>
+            <p class="section-subtitle">Teknologi dan tools yang saya kuasai untuk menciptakan solusi digital</p>
         </div>
 
-        <div class="skills-container">
-            <!-- UI/UX Designer -->
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h3>UI/UX Designer</h3>
-                <p>Merancang interface yang intuitif dan user experience yang luar biasa dengan pendekatan design thinking</p>
-                <div class="tech-list">
-                    <span class="tech-tag">Figma</span>
-                    <span class="tech-tag">Design System</span>
-                    <span class="tech-tag">Prototyping</span>
-                </div>
-            </div>
-
-            <!-- Frontend Developer -->
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <h3>Frontend Developer</h3>
-                <p>Membangun interface yang responsif dan interaktif dengan teknologi web terkini</p>
-                <div class="tech-list">
-                    <span class="tech-tag">Vue.js</span>
-                    <span class="tech-tag">HTML/CSS</span>
-                    <span class="tech-tag">JavaScript</span>
+        <div class="skills-grid">
+            <div class="skill-card-3d tilt-card reveal" data-delay="0">
+                <div class="skill-card-inner glass-card">
+                    <div class="skill-card-glow glow-purple"></div>
+                    <div class="skill-icon-wrap">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>UI/UX Designer</h3>
+                    <p>Merancang interface yang intuitif dan user experience luar biasa dengan pendekatan design
+                        thinking.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Design System</span>
+                        <span class="skill-tag">Prototyping</span>
+                        <span class="skill-tag">Wireframing</span>
+                    </div>
+                    <div class="skill-progress-wrap">
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill" data-width="85"></div>
+                        </div>
+                        <span class="skill-progress-label">85%</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Backend Developer -->
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fas fa-server"></i>
-                </div>
-                <h3>Backend Developer</h3>
-                <p>Mengembangkan API dan logika server yang robust dan scalable</p>
-                <div class="tech-list">
-                    <span class="tech-tag">Laravel</span>
-                    <span class="tech-tag">Database</span>
-                    <span class="tech-tag">REST API</span>
+            <div class="skill-card-3d tilt-card reveal" data-delay="100">
+                <div class="skill-card-inner glass-card">
+                    <div class="skill-card-glow glow-blue"></div>
+                    <div class="skill-icon-wrap blue">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Frontend Developer</h3>
+                    <p>Membangun interface yang responsif dan interaktif dengan teknologi web terkini.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Responsive</span>
+                    </div>
+                    <div class="skill-progress-wrap">
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill blue" data-width="80"></div>
+                        </div>
+                        <span class="skill-progress-label">80%</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Game Developer -->
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fas fa-gamepad"></i>
+            <div class="skill-card-3d tilt-card reveal" data-delay="200">
+                <div class="skill-card-inner glass-card">
+                    <div class="skill-card-glow glow-green"></div>
+                    <div class="skill-icon-wrap green">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Developer</h3>
+                    <p>Mengembangkan API dan logika server yang robust dan scalable untuk berbagai aplikasi.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">REST API</span>
+                    </div>
+                    <div class="skill-progress-wrap">
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill green" data-width="75"></div>
+                        </div>
+                        <span class="skill-progress-label">75%</span>
+                    </div>
                 </div>
-                <h3>Game Developer</h3>
-                <p>Menciptakan game yang interaktif dan engaging dengan Roblox Studio</p>
-                <div class="tech-list">
-                    <span class="tech-tag">Roblox Studio</span>
-                    <span class="tech-tag">Lua</span>
-                    <span class="tech-tag">Game Design</span>
+            </div>
+
+            <div class="skill-card-3d tilt-card reveal" data-delay="300">
+                <div class="skill-card-inner glass-card">
+                    <div class="skill-card-glow glow-pink"></div>
+                    <div class="skill-icon-wrap pink">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Game Developer</h3>
+                    <p>Menciptakan game yang interaktif dan engaging dengan Roblox Studio menggunakan Lua.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Roblox Studio</span>
+                        <span class="skill-tag">Lua</span>
+                        <span class="skill-tag">Game Design</span>
+                        <span class="skill-tag">3D</span>
+                    </div>
+                    <div class="skill-progress-wrap">
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill pink" data-width="70"></div>
+                        </div>
+                        <span class="skill-progress-label">70%</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Portfolio Section -->
-    <section id="project" class="portfolio">
-        <div class="section-header">
-            <h2>Portfolio & Projek</h2>
-            <div class="header-line"></div>
-        </div>
-
-        <div class="portfolio-filters">
-            <button class="filter-btn active" data-filter="all">Semua</button>
-            <button class="filter-btn" data-filter="web">Website</button>
-            <button class="filter-btn" data-filter="design">Design</button>
-            <button class="filter-btn" data-filter="game">Game</button>
-        </div>
-
-        <div class="portfolio-grid">
-            <!-- Project 1 -->
-            <div class="portfolio-item" data-category="web">
-                <div class="portfolio-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad1)' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='32' fill='white' font-family='Arial'%3E%3C/text%3E%3C/svg%3E" alt="Vue.js Website Project">
-                    <div class="portfolio-overlay">
-                        <h3>Vue.js Web Application</h3>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Website dengan Vue.js</h3>
-                    <p>Aplikasi web interaktif yang responsif dan modern menggunakan Vue.js framework</p>
-                    <div class="tech-stack">
-                        <span>Vue.js</span>
-                        <span>JavaScript</span>
-                        <span>Responsive Design</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="portfolio-item" data-category="web">
-                <div class="portfolio-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2310b981;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%231f2937;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad2)' width='400' height='300'/%3E%3C/svg%3E" alt="Laravel Backend Project">
-                    <div class="portfolio-overlay">
-                        <h3>Laravel Backend API</h3>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Backend dengan Laravel</h3>
-                    <p>REST API yang powerful dan scalable dibangun dengan Laravel framework</p>
-                    <div class="tech-stack">
-                        <span>Laravel</span>
-                        <span>PHP</span>
-                        <span>REST API</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="portfolio-item" data-category="design">
-                <div class="portfolio-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f59e0b;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23ec4899;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad3)' width='400' height='300'/%3E%3C/svg%3E" alt="Web Design Figma">
-                    <div class="portfolio-overlay">
-                        <h3>Web Design Figma</h3>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Desain Web di Figma</h3>
-                    <p>Rancangan UI/UX profesional dengan design system yang konsisten dan modern</p>
-                    <div class="tech-stack">
-                        <span>Figma</span>
-                        <span>UI Design</span>
-                        <span>Prototyping</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="portfolio-item" data-category="game">
-                <div class="portfolio-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='grad4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad4)' width='400' height='300'/%3E%3C/svg%3E" alt="Roblox Game Project">
-                    <div class="portfolio-overlay">
-                        <h3>Roblox Game</h3>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Game di Roblox Studio</h3>
-                    <p>Game interaktif yang engaging dengan mechanics yang menarik dan gameplay yang smooth</p>
-                    <div class="tech-stack">
-                        <span>Roblox Studio</span>
-                        <span>Lua</span>
-                        <span>3D Game</span>
-                    </div>
+        <!-- Tech Marquee -->
+        <div class="tech-marquee reveal">
+            <p class="marquee-label">Technologies I Work With</p>
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span><i class="fab fa-html5"></i> HTML5</span>
+                    <span><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span><i class="fab fa-js"></i> JavaScript</span>
+                    <span><i class="fab fa-vuejs"></i> Vue.js</span>
+                    <span><i class="fab fa-php"></i> PHP</span>
+                    <span><i class="fab fa-laravel"></i> Laravel</span>
+                    <span><i class="fab fa-figma"></i> Figma</span>
+                    <span><i class="fas fa-gamepad"></i> Roblox Studio</span>
+                    <span><i class="fas fa-database"></i> MySQL</span>
+                    <span><i class="fab fa-git-alt"></i> Git</span>
+                    <!-- Duplicate for seamless loop -->
+                    <span><i class="fab fa-html5"></i> HTML5</span>
+                    <span><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span><i class="fab fa-js"></i> JavaScript</span>
+                    <span><i class="fab fa-vuejs"></i> Vue.js</span>
+                    <span><i class="fab fa-php"></i> PHP</span>
+                    <span><i class="fab fa-laravel"></i> Laravel</span>
+                    <span><i class="fab fa-figma"></i> Figma</span>
+                    <span><i class="fas fa-gamepad"></i> Roblox Studio</span>
+                    <span><i class="fas fa-database"></i> MySQL</span>
+                    <span><i class="fab fa-git-alt"></i> Git</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="kontak" class="contact">
-        <div class="section-header">
-            <h2>Mari Berkolaborasi</h2>
-            <div class="header-line"></div>
+    <!-- ========================
+         PORTFOLIO SECTION
+         ======================== -->
+    <section id="project" class="portfolio section">
+        <div class="section-header reveal">
+            <span class="section-label">My Work</span>
+            <h2 class="section-title">Portfolio & <span class="gradient-text">Projek</span></h2>
+            <p class="section-subtitle">Karya-karya terbaik yang telah saya kerjakan</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="portfolio-filters reveal">
+            <button class="filter-btn active" data-filter="all" id="filterAll">
+                <i class="fas fa-th"></i> Semua
+            </button>
+            <button class="filter-btn" data-filter="web" id="filterWeb">
+                <i class="fas fa-globe"></i> Website
+            </button>
+            <button class="filter-btn" data-filter="design" id="filterDesign">
+                <i class="fas fa-paint-brush"></i> Design
+            </button>
+            <button class="filter-btn" data-filter="game" id="filterGame">
+                <i class="fas fa-gamepad"></i> Game
+            </button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid" id="portfolioGrid">
+            <!-- Project 1: Vue.js -->
+            <div class="portfolio-card tilt-card reveal" data-category="web"
+                data-title="Website dengan Vue.js"
+                data-desc="Aplikasi web interaktif dengan dashboard admin yang responsif dan modern menggunakan Vue.js framework. Dilengkapi dengan manajemen pengguna, analytics chart, dan laporan data secara real-time."
+                data-stack="Vue.js,JavaScript,CSS3,Chart.js,Axios"
+                data-images="assets/images/project-vuejs.png,assets/images/project-vuejs-2.png,assets/images/project-vuejs-3.png"
+                data-link=""
+                data-category-label="Website">
+                <div class="portfolio-card-inner glass-card">
+                    <div class="portfolio-image">
+                        <img src="assets/images/project-vuejs.png" alt="Vue.js Web Application Dashboard" class="portfolio-img" loading="lazy">
+                        <div class="portfolio-overlay-3d">
+                            <div class="overlay-content">
+                                <i class="fas fa-images"></i>
+                                <span>Lihat Detail</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-img-badge">
+                            <i class="fab fa-vuejs"></i> Vue.js
+                        </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <div class="portfolio-category-tag">Website</div>
+                        <h3>Website dengan Vue.js</h3>
+                        <p>Aplikasi web interaktif dengan dashboard admin, analytics chart, dan manajemen pengguna real-time.</p>
+                        <div class="portfolio-stack">
+                            <span>Vue.js</span>
+                            <span>JavaScript</span>
+                            <span>CSS3</span>
+                        </div>
+                        <button class="portfolio-link btn-open-modal">
+                            <span>Lihat Detail</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Laravel -->
+            <div class="portfolio-card tilt-card reveal" data-category="web" data-delay="100"
+                data-title="Backend dengan Laravel"
+                data-desc="REST API yang powerful dan scalable dibangun dengan Laravel framework. Dilengkapi dengan autentikasi JWT, dokumentasi API otomatis, dan skema database relasional yang terstruktur."
+                data-stack="Laravel,PHP,MySQL,JWT,REST API"
+                data-images="assets/images/project-laravel.png,assets/images/project-laravel-2.png,assets/images/project-laravel-3.png"
+                data-link=""
+                data-category-label="Website">
+                <div class="portfolio-card-inner glass-card">
+                    <div class="portfolio-image">
+                        <img src="assets/images/project-laravel.png" alt="Laravel REST API Backend" class="portfolio-img" loading="lazy">
+                        <div class="portfolio-overlay-3d">
+                            <div class="overlay-content">
+                                <i class="fas fa-images"></i>
+                                <span>Lihat Detail</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-img-badge" style="background: linear-gradient(135deg, #10b981, #059669);">
+                            <i class="fab fa-laravel"></i> Laravel
+                        </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <div class="portfolio-category-tag web">Website</div>
+                        <h3>Backend dengan Laravel</h3>
+                        <p>REST API scalable dengan autentikasi JWT, dokumentasi Swagger, dan skema database relasional.</p>
+                        <div class="portfolio-stack">
+                            <span>Laravel</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                        </div>
+                        <button class="portfolio-link btn-open-modal">
+                            <span>Lihat Detail</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Figma -->
+            <div class="portfolio-card tilt-card reveal" data-category="design" data-delay="200"
+                data-title="Desain UI/UX di Figma"
+                data-desc="Rancangan UI/UX profesional untuk aplikasi mobile banking dengan design system yang komprehensif. Mencakup lebih dari 30 screen, komponen reusable, color palette, dan typography scale."
+                data-stack="Figma,UI Design,Prototyping,Design System,UX Research"
+                data-images="assets/images/project-figma.png,assets/images/project-figma-2.png,assets/images/project-figma-3.png"
+                data-link=""
+                data-category-label="Design">
+                <div class="portfolio-card-inner glass-card">
+                    <div class="portfolio-image">
+                        <img src="assets/images/project-figma.png" alt="Figma UI/UX Design Project" class="portfolio-img" loading="lazy">
+                        <div class="portfolio-overlay-3d">
+                            <div class="overlay-content">
+                                <i class="fas fa-images"></i>
+                                <span>Lihat Detail</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-img-badge" style="background: linear-gradient(135deg, #f59e0b, #ec4899);">
+                            <i class="fab fa-figma"></i> Figma
+                        </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <div class="portfolio-category-tag design">Design</div>
+                        <h3>Desain UI/UX di Figma</h3>
+                        <p>UI/UX mobile banking app dengan 30+ screen, design system lengkap, dan komponen reusable.</p>
+                        <div class="portfolio-stack">
+                            <span>Figma</span>
+                            <span>UI Design</span>
+                            <span>Prototyping</span>
+                        </div>
+                        <button class="portfolio-link btn-open-modal">
+                            <span>Lihat Detail</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Roblox -->
+            <div class="portfolio-card tilt-card reveal" data-category="game" data-delay="300"
+                data-title="Adventure RPG — Roblox Studio"
+                data-desc="Game RPG petualangan 3D yang engaging dengan sistem NPC dialog, quest tracking, dan player stats. Dibangun menggunakan Roblox Studio dengan Lua scripting untuk mekanik game yang kompleks."
+                data-stack="Roblox Studio,Lua,3D Design,Game Scripting,NPC AI"
+                data-images="assets/images/project-roblox.png,assets/images/project-roblox-2.png,assets/images/project-roblox-3.png"
+                data-link=""
+                data-category-label="Game">
+                <div class="portfolio-card-inner glass-card">
+                    <div class="portfolio-image">
+                        <img src="assets/images/project-roblox.png" alt="Roblox Studio 3D Game" class="portfolio-img" loading="lazy">
+                        <div class="portfolio-overlay-3d">
+                            <div class="overlay-content">
+                                <i class="fas fa-images"></i>
+                                <span>Lihat Detail</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-img-badge" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">
+                            <i class="fas fa-gamepad"></i> Roblox
+                        </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <div class="portfolio-category-tag game">Game</div>
+                        <h3>Adventure RPG — Roblox</h3>
+                        <p>Game RPG 3D dengan NPC dialog, sistem quest, player stats, dan mekanik gameplay yang kompleks.</p>
+                        <div class="portfolio-stack">
+                            <span>Roblox Studio</span>
+                            <span>Lua</span>
+                            <span>3D Game</span>
+                        </div>
+                        <button class="portfolio-link btn-open-modal">
+                            <span>Lihat Detail</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+         CONTACT SECTION
+         ======================== -->
+    <section id="kontak" class="contact section">
+        <div class="contact-bg-shapes">
+            <div class="contact-shape-1"></div>
+            <div class="contact-shape-2"></div>
+        </div>
+
+        <div class="section-header reveal">
+            <span class="section-label">Get In Touch</span>
+            <h2 class="section-title">Mari <span class="gradient-text">Berkolaborasi</span></h2>
+            <p class="section-subtitle">Tertarik bekerja bersama? Saya selalu terbuka untuk diskusi dan kolaborasi baru.
+            </p>
         </div>
 
         <div class="contact-content">
-            <div class="contact-text">
-                <h3>Tertarik dengan karya saya?</h3>
-                <p>Saya siap untuk mendiskusikan project baru, partnership, atau opportunity lainnya.</p>
-                <p>Hubungi saya melalui WhatsApp atau media sosial saya.</p>
+            <div class="contact-left reveal-left">
+                <div class="contact-info-card glass-card tilt-card">
+                    <h3>Hubungi Saya</h3>
+                    <p>Saya siap mendiskusikan project baru, partnership, atau opportunity lainnya. Jangan ragu untuk
+                        menghubungi saya!</p>
+
+                    <div class="contact-methods">
+                        <a href="https://wa.me/6282340619880" class="contact-method-btn" target="_blank"
+                            id="btnWhatsapp">
+                            <div class="method-icon whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">WhatsApp</span>
+                                <span class="method-value">082 340 619 880</span>
+                            </div>
+                            <i class="fas fa-arrow-right method-arrow"></i>
+                        </a>
+                    </div>
+
+                    <div class="social-section">
+                        <p class="social-label">Follow Me On</p>
+                        <div class="social-links">
+                            <a href="#" class="social-btn" title="GitHub" id="socialGithub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-btn" title="LinkedIn" id="socialLinkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-btn" title="Instagram" id="socialInstagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-btn" title="Email" id="socialEmail">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="contact-methods">
-                <a href="https://wa.me/6282340619880" class="contact-button" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                    <span class="phone">082 340 619 880</span>
-                </a>
-            </div>
-
-            <div class="social-links">
-                <a href="#" class="social-icon" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="social-icon" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" class="social-icon" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-icon" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
+            <div class="contact-right reveal-right">
+                <!-- Contact Form -->
+                <form class="contact-form glass-card" id="contactForm" novalidate>
+                    <h3>Kirim Pesan</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Nama Lengkap</label>
+                            <div class="input-wrap">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="contactName" name="name" placeholder="Nama kamu..."
+                                    autocomplete="name">
+                            </div>
+                            <span class="input-error" id="nameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <div class="input-wrap">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="contactEmail" name="email" placeholder="email@kamu.com"
+                                    autocomplete="email">
+                            </div>
+                            <span class="input-error" id="emailError"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactSubject">Subjek</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-tag"></i>
+                            <input type="text" id="contactSubject" name="subject" placeholder="Tentang apa?">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Pesan</label>
+                        <div class="input-wrap textarea-wrap">
+                            <i class="fas fa-comment-alt"></i>
+                            <textarea id="contactMessage" name="message" placeholder="Ceritakan project atau ideamu..."
+                                rows="5"></textarea>
+                        </div>
+                        <span class="input-error" id="messageError"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" id="btnSubmit">
+                        <span>Kirim Pesan</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Pesan terkirim! Saya akan menghubungi Anda segera.</span>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -370,11 +758,83 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2026 Adhim Satya Nugraha. All rights reserved.</p>
-            <p>Crafted with <span class="heart">❤️</span> by Adhim</p>
+            <div class="footer-logo">AS</div>
+            <p class="footer-text">© 2026 Adhim Satya Nugraha. Crafted with <span class="heart">❤️</span> and passion.
+            </p>
+            <div class="footer-links">
+                <a href="#home">Beranda</a>
+                <a href="#tentang">Tentang</a>
+                <a href="#project">Portfolio</a>
+                <a href="#kontak">Kontak</a>
+            </div>
         </div>
     </footer>
 
+    <!-- Scroll To Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Back to top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ========================
+         PROJECT DETAIL MODAL
+         ======================== -->
+    <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-container">
+            <!-- Close Button -->
+            <button class="modal-close" id="modalClose" aria-label="Tutup modal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Left: Image Gallery -->
+            <div class="modal-gallery">
+                <!-- Main Image -->
+                <div class="modal-main-img-wrap">
+                    <img src="" alt="" class="modal-main-img" id="modalMainImg">
+                    <!-- Prev / Next -->
+                    <button class="gallery-nav prev" id="galleryPrev" aria-label="Gambar sebelumnya">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="gallery-nav next" id="galleryNext" aria-label="Gambar berikutnya">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <!-- Counter -->
+                    <div class="gallery-counter" id="galleryCounter">1 / 3</div>
+                </div>
+
+                <!-- Thumbnails Strip -->
+                <div class="modal-thumbnails" id="modalThumbnails"></div>
+            </div>
+
+            <!-- Right: Project Info -->
+            <div class="modal-info">
+                <div class="modal-info-inner">
+                    <!-- Category label -->
+                    <div class="modal-category" id="modalCategory">Website</div>
+
+                    <!-- Title -->
+                    <h2 class="modal-title" id="modalTitle">Project Title</h2>
+
+                    <!-- Description -->
+                    <p class="modal-desc" id="modalDesc">Deskripsi project...</p>
+
+                    <!-- Tech Stack -->
+                    <div class="modal-stack-section">
+                        <h4 class="modal-stack-label"><i class="fas fa-layer-group"></i> Tech Stack</h4>
+                        <div class="modal-stack-tags" id="modalStack"></div>
+                    </div>
+
+                    <!-- Deploy Status -->
+                    <div class="modal-deploy-section" id="modalDeploySection">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
+
 </html>
